@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>블로그 글 - 임베디드 & IoT 개발 블로그</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div>
+        <div class="site-title">임베디드 & IoT 개발 블로그</div>
+        <div class="site-subtitle">아두이노 · 라즈베리파이 · 스마트 팩토리 기록</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">홈</a></li>
+          <li><a href="projects.html">프로젝트</a></li>
+          <li><a href="posts.html">블로그 글</a></li>
+          <li><a href="about.html">소개</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section class="card">
+      <h2 style="margin-bottom: 15px;">블로그 글</h2>
+
+      <article class="post">
+        <h2>디팔렛타이저 서보 모터 전원 구성</h2>
+        <div class="date">2025-12-05</div>
+        <p>
+          MG996R 서보를 6개 사용하다 보니 아두이노 보드에서 직접 전원을 공급하면
+          전압 강하와 리셋 문제가 발생했습니다. 그래서 5V 10A 어댑터를 별도로 두고
+          서보 전원을 분리한 뒤, GND만 아두이노와 공통으로 묶어 문제를 해결했습니다.
+        </p>
+        <p>
+          또한, 각 서보에 동시에 큰 부하가 걸리지 않도록 동작 순서를 약간씩
+          지연시키는 방식으로 토크를 분배했습니다.
+        </p>
+      </article>
+
+      <article class="post">
+        <h2>Flask 서버로 라즈베리파이 영상 받기</h2>
+        <div class="date">2025-11-29</div>
+        <p>
+          라즈베리파이에서 OpenCV로 캡처한 프레임을 JPEG로 인코딩하고,
+          HTTP POST 요청으로 Flask 서버의 <code>/upload/&lt;cam_id&gt;</code> 엔드포인트에
+          전송하도록 구현했습니다.
+        </p>
+        <p>
+          서버에서는 최신 프레임을 메모리에 저장해 두었다가
+          <code>/stream/&lt;cam_id&gt;</code> 요청이 들어오면 MJPEG 스트림으로
+          계속 내려보내 브라우저와 WinForm에서 실시간 영상처럼 볼 수 있게 만들었습니다.
+        </p>
+      </article>
+
+      <article class="post">
+        <h2>MQTT 토픽 설계 팁</h2>
+        <div class="date">2025-11-11</div>
+        <p>
+          화재 감지 시스템을 만들면서 토픽 이름을
+          <code>factory/fire</code>, <code>factory/temp</code> 처럼
+          공장 단위로 묶어 설계하니 나중에 디버깅과 모니터링이 훨씬 쉬웠습니다.
+        </p>
+        <p>
+          토픽 구조를 처음부터 잘 설계해 두면,
+          센서가 늘어나도 구독 패턴만 조절해서 쉽게 확장할 수 있다는 점을 배웠습니다.
+        </p>
+      </article>
+
+    </section>
+
+  </div>
+
+  <footer>
+    © 2025 임베디드 & IoT 개발 블로그. All rights reserved.
+  </footer>
+
+</body>
+</html>
